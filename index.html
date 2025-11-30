@@ -9,30 +9,44 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
 
    
 </head>
 
 <body>
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow fixed-top">
+  <div class="container">
+    <a class="navbar-brand fs-4 fw-bold text-primary" href="#">Akshay's Portfolio</a>
 
-    <!-- Navigation -->
-    <nav class="bg-white shadow fixed w-100 top-0 z-3">
-        <div class="container d-flex justify-content-between align-items-center py-3">
-            <div class="fs-4 fw-bold text-primary">Akshay's Portfolio</div>
-            <div>
-                <a href="#home" class="text-decoration-none text-dark mx-2">Home</a>
-                <a href="#about" class="text-decoration-none text-dark mx-2">About</a>
-                <a href="#education" class="text-decoration-none text-dark mx-2">Education</a>
-                <a href="#skills" class="text-decoration-none text-dark mx-2">Skills</a>
-                <a href="#experience" class="text-decoration-none text-dark mx-2">Experience</a>
-                <a href="#projects" class="text-decoration-none text-dark mx-2">Projects</a>
-                <a href="#contact" class="text-decoration-none text-dark mx-2">Contact</a>
-            </div>
-        </div>
-    </nav>
+    <!-- Toggle Button -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Menu Items -->
+    <div class="collapse navbar-collapse" id="navbarMenu">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0" style="text-align: center;">
+        <li class="nav-item"><a class="nav-link mx-2" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link mx-2" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link mx-2" href="#education">Education</a></li>
+        <li class="nav-item"><a class="nav-link mx-2" href="#skills">Skills</a></li>
+        <li class="nav-item"><a class="nav-link mx-2" href="#experience">Experience</a></li>
+        <li class="nav-item"><a class="nav-link mx-2" href="#projects">Projects</a></li>
+        <li class="nav-item"><a class="nav-link mx-2" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
 
     <!-- Home -->
     <section id="home" class="vh-100 d-flex align-items-center justify-content-center text-white text-center"
@@ -299,7 +313,6 @@
 
 
 <style>
- 
 
     :root {
         --primary-color: #114AB1;
@@ -364,20 +377,42 @@
         color: var(--primary-color);
     }
 
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+.navbar-hide {
+    transform: translateY(-100%);
+    transition: transform 0.4s ease-in-out;
+}
+
+nav {
+    transition: transform 0.4s ease-in-out;
+}
+
 
 </style>
     <script>
-        let lastScrollTop = 0;
-        const navbar = document.querySelector('nav');
-        window.addEventListener('scroll', function () {
-            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            if (scrollTop > lastScrollTop) {
-                navbar.classList.add('navbar-hide');
-            } else {
-                navbar.classList.remove('navbar-hide');
-            }
-            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-        }, false);
+
+let lastScrollTop = 0;
+const navbar = document.querySelector('nav');
+
+window.addEventListener('scroll', function () {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > lastScrollTop) {
+        navbar.classList.add('navbar-hide'); // scrolling down → hide
+    } else {
+        navbar.classList.remove('navbar-hide'); // scrolling up → show
+    }
+
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+});
+
+
     </script>
 </body>
 
